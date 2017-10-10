@@ -1,0 +1,9 @@
+{
+  "title": "Ansible notes",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "# README\n\n1. Generate ssh key to be used\n\n```sh\nssh-keygen -t rsa -b 4096 -C \"vagrant@vagrant.com\" -N \"\" -f data/ssh/id_rsa\n```\nIt seems like your system ports are busy, do check docker ps -a, below is the process to install docker community edition :\n\nRemove previous version of docker and docker engine\n$ sudo apt-get remove docker docker-engine\n\nAllow apt to use repo over https\n$ sudo apt-get install apt-transport-https \\ ca-certificates \\ curl \\ software-properties-common\n\nAdd Docker official's GPG Key\n$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -\n\nSetting up stable repository\n$ sudo add-apt-repository \\ \"deb [arch=amd64] https://download.docker.com/linux/ubuntu \\ $(lsb_release -cs) \\ stable\"\n\n$(lsb_release -cs)\n\nAbove command returns the name of Ubuntu distribution like \"Xenial\"\n\nInstall Docker\n$ sudo apt-get update\n$ sudo apt-get install docker-ce\n\n## Install galaxy with requirements.yml\n\n```sh\nansible-galaxy install -r requirements.yml\n```\n\nhttps://stackoverflow.com/a/44962723\n\n cat /usr/lib/systemd/system/docker.service\n\ndocker -H 192.168.33.20:2376 ps \n\ndocker run -p 9000:9000 --name minio1 \\\n  -v /mnt/data:/data \\\n  minio/minio server /data\n\n  ansible-vault view secrets.yml --ask-vault-pass\n\n# create a vault-password-file\n  echo 'password' > .vault_pass\n\n  ansible-vault view secrets.yml\n\n  echo '*/.vault_pass' >> ../.gitignore\n\n  export ANSIBLE_VAULT_PASSWORD_FILE=./.vault_pass\n\n\n  ansible --vault-password-file=.vault_pass\n\n   ansible-vault view --vault-password-file=.vault_pass secrets.yml"
+    }
+  ]
+}
