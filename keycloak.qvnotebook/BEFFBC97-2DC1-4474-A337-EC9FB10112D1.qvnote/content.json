@@ -1,0 +1,38 @@
+{
+  "title": "keycloak docker postgres",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "docker exec keycloak keycloak/bin/add-user-keycloak.sh --user <USERNAME> --password <PASSWORD>\n\n-e KEYCLOAK_USER=<USERNAME> -e KEYCLOAK_PASSWORD=<PASSWORD>\n"
+    },
+    {
+      "type": "text",
+      "data": "<a href=\"http://blog.keycloak.org/2015/04/running-keycloak-cluster-with-docker.html\">http://blog.keycloak.org/2015/04/running-keycloak-cluster-with-docker.html</a>"
+    },
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "docker run --name postgres -e POSTGRES_DATABASE=keycloak -e POSTGRES_USER=keycloak -e POSTGRES_PASSWORD=password -e POSTGRES_ROOT_PASSWORD=password -d postgres"
+    },
+    {
+      "type": "code",
+      "language": "sh",
+      "data": " statement: CREATE USER \"keycloak\" WITH SUPERUSER PASSWORD 'password' ;"
+    },
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "docker run -p 8080:8080 --name keycloak --link postgres:postgres -e POSTGRES_DATABASE=keycloak -e POSTGRES_USER=keycloak -e POSTGRES_PASSWORD=password -d jboss/keycloak-ha-postgres"
+    },
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "docker run --name ivonet-keycloak-backup -it --rm  -v $(pwd):/backup --link ivonet-keycloak-postgres:postgres -p 10001:8080 -e POSTGRES_DATABASE=keycloak -e POSTGRES_USER=keycloak -e POSTGRES_PASSWORD=keycloak jboss/keycloak-postgres /opt/jboss/keycloak/bin/standalone.sh -Dkeycloak.migration.action=export -Dkeycloak.migration.provider=singleFile -Dkeycloak.migration.realmName=IvoNet -Dkeycloak.migration.file=/backup/keycloak-realm-IvoNet-$(date +\"%Y-%m-%d\").json\n"
+    },
+    {
+      "type": "text",
+      "data": "<a href=\"http://exabig.com/blog/2017/05/01/setup-keycloak-docker-container/\">http://exabig.com/blog/2017/05/01/setup-keycloak-docker-container/</a>"
+    }
+  ]
+}

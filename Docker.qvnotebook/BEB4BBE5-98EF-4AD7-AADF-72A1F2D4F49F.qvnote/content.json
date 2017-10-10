@@ -1,0 +1,10 @@
+{
+  "title": "Docker Compose",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "docker-compose -p -f"
+    }
+  ]
+}

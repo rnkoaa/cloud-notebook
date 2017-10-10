@@ -1,0 +1,20 @@
+{
+  "title": "functions",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sql",
+      "data": "-- How to structure a function\nCREATE FUNCTION function_name(p1 type, p2 type)\n RETURNS type AS\nBEGIN\n -- logic\nEND;\nLANGUAGE language_name;\n\nCREATE OR REPLACE FUNCTION fib (fib_for integer) \nRETURNS integer AS $$\nBEGIN\n    IF fib_for < 2 THEN\n        RETURN fib_for;\n    END IF;\n    RETURN fib(fib_for - 2) + fib(fib_for - 1);\nEND;\n$$ LANGUAGE plpgsql;\n\n -- Function increments the input value by 1\n CREATE OR REPLACE FUNCTION increment(i INT) RETURNS INT AS $$\n  BEGIN\n    RETURN i + 1;\n  END;\n  $$ LANGUAGE plpgsql;\n\n-- sample implementation\nCREATE OR REPLACE FUNCTION totalRecords ()\nRETURNS integer AS $total$\ndeclare\n\ttotal integer;\nBEGIN\n   SELECT count(*) into total FROM COMPANY;\n   RETURN total;\nEND;\n$total$ LANGUAGE plpgsql;\n\ntestdb# select * from COMPANY;\n id | name  | age | address   | salary\n----+-------+-----+-----------+--------\n  1 | Paul  |  32 | California|  20000\n  2 | Allen |  25 | Texas     |  15000\n  3 | Teddy |  23 | Norway    |  20000\n  4 | Mark  |  25 | Rich-Mond |  65000\n  5 | David |  27 | Texas     |  85000\n  6 | Kim   |  22 | South-Hall|  45000\n  7 | James |  24 | Houston   |  10000\n(7 rows)"
+    },
+    {
+      "type": "code",
+      "language": "sql",
+      "data": "CREATE OR REPLACE FUNCTION factorial (i numeric)\nRETURNS numeric AS $$\nDECLARE tmp numeric; result numeric;\nBEGIN\nresult := 1; tmp := 1;\nWHILE tmp <= i LOOP\nresult := result * tmp;\ntmp := tmp + 1;\nEND LOOP;\nRETURN result;\nEND;\n$$ LANGUAGE plpgsql;\nSELECT factorial(42::numeric);"
+    },
+    {
+      "type": "code",
+      "language": "sql",
+      "data": "create function grt_sfunc(agg_state point, el float8)\nreturns point\nimmutable\nlanguage plpgsql\nas $$\ndeclare\n  greatest_sum float8;\n  current_sum float8;\nbegin\n  current_sum := agg_state[0] + el;\n  if agg_state[1] < current_sum then\n    greatest_sum := current_sum;\n  else\n    greatest_sum := agg_state[1];\n  end if;\n\n  return point(current_sum, greatest_sum);\nend;\n$$;"
+    }
+  ]
+}
