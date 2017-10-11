@@ -4,7 +4,7 @@
     {
       "type": "code",
       "language": "sh",
-      "data": "docker-compose -p -f"
+      "data": "docker-compose -p -f\n\ndocker network ls -f name=postgres_network -q"
     }
   ]
 }

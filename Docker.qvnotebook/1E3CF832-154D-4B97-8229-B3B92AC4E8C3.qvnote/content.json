@@ -1,0 +1,10 @@
+{
+  "title": "docker network inspect",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "docker inspect postgres | jq '.[0].NetworkSettings.Networks'"
+    }
+  ]
+}

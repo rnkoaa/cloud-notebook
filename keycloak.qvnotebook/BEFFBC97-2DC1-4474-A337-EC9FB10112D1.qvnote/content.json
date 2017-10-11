@@ -16,9 +16,22 @@
       "data": "docker run --name postgres -e POSTGRES_DATABASE=keycloak -e POSTGRES_USER=keycloak -e POSTGRES_PASSWORD=password -e POSTGRES_ROOT_PASSWORD=password -d postgres"
     },
     {
+      "type": "text",
+      "data": "Create Keycloak User, database and grant access to the database."
+    },
+    {
       "type": "code",
       "language": "sh",
-      "data": " statement: CREATE USER \"keycloak\" WITH SUPERUSER PASSWORD 'password' ;"
+      "data": "# First log into the the postgres docker container\ndocker exec -it postgres psql -U postgres"
+    },
+    {
+      "type": "text",
+      "data": "Then run the following commands"
+    },
+    {
+      "type": "code",
+      "language": "sql",
+      "data": "\nCREATE USER \"keycloak\" WITH SUPERUSER PASSWORD 'keycloak' ;\nCREATE DATABASE keycloak;\nGRANT ALL PRIVILEGES ON DATABASE keycloak TO keycloak;"
     },
     {
       "type": "code",

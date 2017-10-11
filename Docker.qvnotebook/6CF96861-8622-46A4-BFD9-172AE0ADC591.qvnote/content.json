@@ -1,0 +1,10 @@
+{
+  "title": "Docker network connect",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "# sample command\n# docker network connect ${NETWORK_NAME} ${CONTAINER}\ndocker network connect postgres_network postgres"
+    }
+  ]
+}

@@ -1,4 +1,9 @@
 {
-  "title": "Untitled Note",
-  "cells": []
+  "title": "error",
+  "cells": [
+    {
+      "type": "text",
+      "data": "<div>17:01:12,479 ERROR [org.jboss.as.controller.management-operation] (Controller Boot Thread) WFLYCTL0013: Operation (\"add\") failed - address: ([</div><div>&nbsp; &nbsp; (\"subsystem\" =&gt; \"datasources\"),</div><div>&nbsp; &nbsp; (\"data-source\" =&gt; \"KeycloakDS\")</div><div>]) - failure description: \"WFLYCTL0211: Cannot resolve expression 'jdbc:postgresql://${env.POSTGRES_PORT_5432_TCP_ADDR}:${env.POSTGRES_PORT_5432_TCP_PORT:5432}/${env.POSTGRES_DATABASE:keycloak}'\"</div>"
+    }
+  ]
 }
