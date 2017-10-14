@@ -1,0 +1,10 @@
+{
+  "title": "Find duplicates ",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sql",
+      "data": " select product_id, image_slug, count(*) \n from product_images\n group by product_id, image_slug\n having count(*) > 1\n order by product_id;\n \n \n \n  select product_id, image_slug, count(*) \n from product_images\n group by product_id, image_slug\n having count(*) > 1\n order by image_slug;\n \n \n   select image_slug\n from product_images\n group by image_slug\n having count(*) > 1\n order by image_slug;"
+    }
+  ]
+}

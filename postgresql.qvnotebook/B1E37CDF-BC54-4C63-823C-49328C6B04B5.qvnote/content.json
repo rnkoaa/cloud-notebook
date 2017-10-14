@@ -1,0 +1,10 @@
+{
+  "title": "Backup and Restore Postgres Docker",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sql",
+      "data": "Backup:\ndocker exec -t -u postgres {{container}} pg_dumpall -c > dump_`date +%d-%m-%Y\"_\"%H_%M_%S`.sql\ndocker exec -t -u postgres postgres pg_dumpall -c > catalog_dump_`date +%d-%m-%Y\"_\"%H_%M_%S`.sql\n\n\nRestore:\ncat your_dump.sql | docker exec -i {{container}} psql -U postgres\n\n\nAnother Backup\ndocker exec -t postgres pg_dump -U cataloguser -d catalogs > catalog_dump_`date +%d-%m-%Y\"_\"%H_%M_%S`.sql"
+    }
+  ]
+}
