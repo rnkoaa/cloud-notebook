@@ -1,0 +1,9 @@
+{
+  "title": "Minio",
+  "cells": [
+    {
+      "type": "text",
+      "data": "media/catalog/product"
+    }
+  ]
+}

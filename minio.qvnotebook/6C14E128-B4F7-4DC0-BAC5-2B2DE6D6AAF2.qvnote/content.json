@@ -3,7 +3,7 @@
   "cells": [
     {
       "type": "markdown",
-      "data": "Add a host config \n```sh\nmc config host add {{hostname}} {{host-ip:host-port}} {{accessKey}} {{secretKey}} \n```\n\nList all contents of a bucket\n```sh\n mc ls {{host-name}}/{{bucket-name}}\n ```\n \nList all contents of a folder under a bucket\n```sh\nmc ls {{host-name}}/{{bucket-name}}/{{folder}}\n ```\n \n Delete a folder under a bucket\n ```sh\n mc rm --force {{host-name}}/{{bucket-name}}/{{folder}}\n ```\n \nSet Anonymous Policy for a folder\n\n```sh\nmc policy download {{host-name}}/{{bucket-name}}/{{folder}}\n```\n\nSet Anonymous Policy for a bucket\n\n```sh\nmc policy download {{host-name}}/{{bucket-name}}\n```\n\nFind the current policy of the bucket\n```sh\nmc policy {{host-name}}/{{bucket-name}}\n```"
+      "data": "Add a host config \n```sh\nmc config host add {{hostname}} {{host-ip:host-port}} {{accessKey}} {{secretKey}} \n```\n\nList all contents of a bucket\n```sh\n mc ls {{host-name}}/{{bucket-name}}\n ```\n \nList all contents of a folder under a bucket\n```sh\nmc ls {{host-name}}/{{bucket-name}}/{{folder}}\n ```\n \n Delete a folder under a bucket\n ```sh\n mc rm --force {{host-name}}/{{bucket-name}}/{{folder}}\n ```\n \nSet Anonymous Policy for a folder\n\n```sh\nmc policy download {{host-name}}/{{bucket-name}}/{{folder}}\n```\n\nSet Anonymous Policy for a bucket\n\n```sh\nmc policy download {{host-name}}/{{bucket-name}}\n```\n\nFind the current policy of the bucket\n```sh\nmc policy {{host-name}}/{{bucket-name}}\n```\n\nCopy all files from bucket to currect directory\n```sh\nmc cp --recursive stretch/media .\n```"
     }
   ]
 }

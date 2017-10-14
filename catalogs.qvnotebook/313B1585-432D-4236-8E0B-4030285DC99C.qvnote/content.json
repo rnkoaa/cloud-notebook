@@ -4,7 +4,7 @@
     {
       "type": "code",
       "language": "sh",
-      "data": "drop table catalog_app.databasechangeloglock;\ndrop table catalog_app.databasechangelog;\ndrop table catalog_app.product_category;\ndrop table catalog_app.product;\n\ndocker exec -it postgres pg_dump -U cataloguser -d catalogs -W\n\ndocker exec -it postgres pg_dump -U cataloguser -d catalogs > catalogs.sql\n\n# Log into the postgres db with password as env variable\ndocker exec -it -e PGPASSWORD=cataloguser postgres psql -U cataloguser -d catalogs\n\n# Postgres reset counter after copy\nalter sequence froak_app.category_id_seq restart with 77;\n\n\nselect * from froak_app.category;\n\nselect cp.\"id\", cp.parent_id, cp.category_name, cp.category_id\nfrom froak_app.category cp\n\n-- category id 80\n\nselect cp.parent_id, cp.category_name from\nfroak_app.category cp\nwhere cp.\"id\" = 80\n"
+      "data": "drop table catalog_app.databasechangeloglock;\ndrop table catalog_app.databasechangelog;\ndrop table catalog_app.product_category;\ndrop table catalog_app.product;\n\ndocker exec -it postgres pg_dump -U cataloguser -d catalogs -W\n\ndocker exec -it postgres pg_dump -U cataloguser -d catalogs > catalogs.sql\n\n# Log into the postgres db with password as env variable\ndocker exec -it -e PGPASSWORD=cataloguser postgres psql -U cataloguser -d catalogs\n\n# Postgres reset counter after copy\nalter sequence froak_app.category_id_seq restart with 77;\n\n\nselect * from froak_app.category;\n\nselect cp.\"id\", cp.parent_id, cp.category_name, cp.category_id\nfrom froak_app.category cp\n\n-- category id 80\n\nselect cp.parent_id, cp.category_name from\nfroak_app.category cp\nwhere cp.\"id\" = 80\n\n\n\n"
     }
   ]
 }
