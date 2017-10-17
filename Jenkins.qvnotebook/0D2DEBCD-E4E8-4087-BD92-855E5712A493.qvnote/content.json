@@ -1,0 +1,14 @@
+{
+  "title": "Get List of installed plugins",
+  "cells": [
+    {
+      "type": "text",
+      "data": "Visit http://jenkins-server-url/script<div><br></div><div>then execute the following.</div>"
+    },
+    {
+      "type": "code",
+      "language": "groovy",
+      "data": "Jenkins.instance.pluginManager.plugins.each{ plugin -> \n  println(\"${plugin.getShortName()}:latest\") \n}"
+    }
+  ]
+}
