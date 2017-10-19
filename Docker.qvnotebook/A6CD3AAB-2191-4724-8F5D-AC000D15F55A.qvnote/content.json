@@ -1,0 +1,10 @@
+{
+  "title": "Docker postgres",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "docker exec -t postgres psql -U postgres -d catalogs -c \"select count(*) from catalog_app.product;\""
+    }
+  ]
+}

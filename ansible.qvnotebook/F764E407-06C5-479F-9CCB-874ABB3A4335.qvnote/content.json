@@ -1,0 +1,9 @@
+{
+  "title": "Docker_service compose",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "For docker_service complaining that compose cannot be found, use the following commands to install compose module for sensible\n\n```sh\n/usr/local/Cellar/ansible/2.4.0.0/libexec/bin/pip install docker-compose\n```"
+    }
+  ]
+}
