@@ -4,7 +4,7 @@
     {
       "type": "code",
       "language": "sh",
-      "data": "# remove exited containers\ndocker rm $(docker ps -a -f status=exited -q)\n\n# remove dangling volumes\ndocker volume rm $(docker volume ls -f dangling=true -q)\n\n$ docker exec CONTAINER tar Ccf $(dirname SRC_PATH) - $(basename SRC_PATH) | tar Cxf DEST_PATH -\n$ tar Ccf $(dirname SRC_PATH) - $(basename SRC_PATH) | docker exec -i CONTAINER tar Cxf DEST_PATH -\n\n docker exec -i jenkins tar -czvf /var/jenkins_home/test.tar.gz /var/jenkins_home/jobs /var/jenkins_home/.ssh\ndocker cp jenkins:/var/jenkins_home/test.tar.gz ./test.tar.gz\nocker cp jenkins:/var/jenkins_home/backup.tar.gz ./backup.tar.gz"
+      "data": "# remove exited containers\ndocker rm $(docker ps -a -f status=exited -q)\n\n# remove dangling volumes\ndocker volume rm $(docker volume ls -f dangling=true -q)\n\n$ docker exec CONTAINER tar Ccf $(dirname SRC_PATH) - $(basename SRC_PATH) | tar Cxf DEST_PATH -\n$ tar Ccf $(dirname SRC_PATH) - $(basename SRC_PATH) | docker exec -i CONTAINER tar Cxf DEST_PATH -\n\n docker exec -i jenkins tar -czvf /var/jenkins_home/test.tar.gz /var/jenkins_home/jobs /var/jenkins_home/.ssh\ndocker cp jenkins:/var/jenkins_home/test.tar.gz ./test.tar.gz\nocker cp jenkins:/var/jenkins_home/backup.tar.gz ./backup.tar.gz\n\n# remove all dangling volumes\ndocker volume ls -f dangling=true -q | xargs docker volume rm\ndocker images -qa -f dangling=true | xargs docker rmi -f"
     }
   ]
 }

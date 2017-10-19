@@ -4,7 +4,7 @@
     {
       "type": "code",
       "language": "sh",
-      "data": "ansible all -i postgres, -c docker -m command -a 'env'\nansible all -i postgres, -c docker -m command -a 'ps aux'\nansible all -i postgres, -c docker -m command -a 'uptime'\n\n\n[ansible-docker] ansible all -i postgres, -c docker -m command -a 'psql -U postgres -d postgres \\'-c \\'d\\\\ image'"
+      "data": "ansible all -i postgres, -c docker -m command -a 'env'\nansible all -i postgres, -c docker -m command -a 'ps aux'\nansible all -i postgres, -c docker -m command -a 'uptime'\n\n\n[ansible-docker] ansible all -i postgres, -c docker -m command -a 'psql -U postgres -d postgres \\'-c \\'d\\\\ image'\n\n"
     }
   ]
 }

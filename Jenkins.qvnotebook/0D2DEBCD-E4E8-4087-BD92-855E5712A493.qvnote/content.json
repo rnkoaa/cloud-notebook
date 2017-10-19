@@ -9,6 +9,16 @@
       "type": "code",
       "language": "groovy",
       "data": "Jenkins.instance.pluginManager.plugins.each{ plugin -> \n  println(\"${plugin.getShortName()}:latest\") \n}"
+    },
+    {
+      "type": "code",
+      "language": "groovy",
+      "data": "Jenkins.instance.pluginManager.plugins.each{\n  plugin -> \n    println (\"${plugin.getDisplayName()} (${plugin.getShortName()}): ${plugin.getVersion()}\")\n}"
+    },
+    {
+      "type": "code",
+      "language": "groovy",
+      "data": "// Sorted list of plugins\nJenkins.instance.pluginManager.plugins.sort { it.getDisplayName() }.each{\n  plugin -> \n    println (\"${plugin.getDisplayName()} (${plugin.getShortName()}): ${plugin.getVersion()}\")\n}"
     }
   ]
 }
