@@ -1,0 +1,9 @@
+{
+  "title": "Ansible Inventory File",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "Ansible Inventory file can be any of the following formats\n1. just ini file listing hosts\n2. An executable that can go and perform tasks\n3. A directory list groups of hosts. eg. host_vars, group_vars, hosts"
+    }
+  ]
+}

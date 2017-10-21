@@ -1,0 +1,10 @@
+{
+  "title": "Vagrant Run Adhoc Command",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "vagrant ssh -c 'ls -lart /tmp' "
+    }
+  ]
+}

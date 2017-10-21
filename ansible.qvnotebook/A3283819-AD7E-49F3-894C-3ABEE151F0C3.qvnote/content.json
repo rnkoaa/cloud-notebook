@@ -1,0 +1,9 @@
+{
+  "title": "Example Playbook for running docker commands",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "```yml\n---\n# Used to restore database to postgres for all databases\n- hosts: stretch\n  # connection: local\n  gather_facts: False\n  vars_files:\n    - \"../../secrets.yml\"\n    - \"../../properties.yml\"\n  vars:\n    - db_name: catalogs\n    - source_file: \"files/catalog_dump_13-10-2017_21_38_33.sql\"\n    - destination_file: \"catalog_dump_13-10-2017_21_38_33.sql\"\n  tasks:\n    - name: Copy restore file to host so we can run it on the host machine\n      copy:\n        src: \"{{ source_file }}\"\n        dest: /tmp \n\n    - name: \"Restore {{ db_name }} Database\"\n      shell: >\n          docker exec -i {{ postgres_db_host }} \n          psql -U {{ postgres_db_user }} -d {{ db_name }}\n          < /tmp/{{ destination_file }}\n      # shell: >\n      #   cat {{ destinaation_file }} | \n      #   docker -H tcp://{{ docker_host }}:{{ docker_port }} \n      #   exec -i {{ postgres_db_host }} \n      #   psql -U {{ postgres_db_user }} -d {{ db_name }}\n\n      register: stdout\n\n    - name: debug output\n      debug: msg={{ stdout }}\n```"
+    }
+  ]
+}

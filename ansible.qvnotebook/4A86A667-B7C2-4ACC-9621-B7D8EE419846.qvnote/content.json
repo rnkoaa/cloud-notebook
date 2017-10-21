@@ -1,0 +1,9 @@
+{
+  "title": "Docker bash command",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "\nAfter discussion with some very helpful developers on the ansible github project, a better way to do this is like so:\n\n```yml\n- name: add container to inventory\n  add_host:\n    name: [container-name]\n    ansible_connection: docker\n  changed_when: false\n\n- name: run command in container\n  delegate_to: [container-name]\n  raw: bash\n```\n\nIf you have python installed in your image, you can use the command module or any other module instead of raw.\n\nIf you want to do this on a remote docker host, add:\n\n```sh\nansible_docker_extra_args: \"-H=tcp://[docker-host]:[api port]\"\n```\n\nto the add_host block.\n\nSee the [Ansible documentation](http://docs.ansible.com/ansible/latest/intro_inventory.html#non-ssh-connection-types) for a more complete example."
+    }
+  ]
+}

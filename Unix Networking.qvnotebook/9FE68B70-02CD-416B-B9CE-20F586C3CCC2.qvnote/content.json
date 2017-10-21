@@ -1,0 +1,9 @@
+{
+  "title": "Setting up static Ip",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "https://www.swiftstack.com/docs/install/configure_networking.html\n\nfind the wifi `nic` with `ifconfig` eg. `wlp3s0`\n\nUpdate the static ip in `/etc/network/interfaces` with similar config as below\n\n```\n# This file describes the network interfaces available on your system\n# and how to activate them. For more information, see interfaces(5).\n\n# The loopback network interface\nauto lo\niface lo inet loopback\n\n# The primary network interface\nauto wlp3s0\niface wlp3s0 inet static\n    address 192.168.2.x\n    netmask 255.255.255.0\n    network 192.168.0.0\n    broadcast 192.168.0.255\n    gateway 192.168.2.1\n    dns-nameservers 8.8.4.4 8.8.8.8\n```\n\n\nSince this is a wifi `nic`, run wpa_cli to set wifi defaults\n\n"
+    }
+  ]
+}
