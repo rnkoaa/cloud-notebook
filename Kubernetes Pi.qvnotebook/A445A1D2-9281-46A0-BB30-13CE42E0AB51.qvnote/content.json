@@ -1,0 +1,10 @@
+{
+  "title": "Init Machine Id",
+  "cells": [
+    {
+      "type": "code",
+      "language": "yaml",
+      "data": "ansible all -i hosts --become -m shell -a \"dbus-uuidgen > /etc/machine-id\""
+    }
+  ]
+}

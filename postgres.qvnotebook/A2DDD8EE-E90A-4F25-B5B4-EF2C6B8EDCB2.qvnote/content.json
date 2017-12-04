@@ -1,0 +1,10 @@
+{
+  "title": "Backup and restore dockerized",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "\nBackup your databases\n\ndocker exec -t your-db-container pg_dumpall -c -U postgres > dump_`date +%d-%m-%Y\"_\"%H_%M_%S`.sql\n\nRestore your databases\n\ncat your_dump.sql | docker exec -i your-db-container psql -U postgres\n\ncat catalogs_2017-10-05_1852.sql | docker exec -i postgres psql -U postgres -d catalogs"
+    }
+  ]
+}

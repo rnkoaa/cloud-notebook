@@ -1,0 +1,10 @@
+{
+  "title": "Ansible Adhoc localhost",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "ansible all -i \"localhost,\" -c local -m shell -a 'echo hello world'\nansible all -i \"localhost,\" -c local -m shell -a 'hostname'"
+    }
+  ]
+}

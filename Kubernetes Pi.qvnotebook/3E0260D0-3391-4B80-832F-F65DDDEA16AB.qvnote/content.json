@@ -1,0 +1,10 @@
+{
+  "title": "Kubectl",
+  "cells": [
+    {
+      "type": "code",
+      "language": "yaml",
+      "data": "kubectl config get-contexts\n\nkubectl config use-context rpi-cloud "
+    }
+  ]
+}

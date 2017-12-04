@@ -1,0 +1,10 @@
+{
+  "title": "With Recursive Structure",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sql",
+      "data": "WITH RECURSIVE t(n) AS  -- create a temp table named t\n(\n    SELECT 1     -- non-recursive term\n  UNION ALL\n    SELECT n+1 FROM t    -- recursive term\n)\nSELECT n FROM t LIMIT 100;"
+    }
+  ]
+}

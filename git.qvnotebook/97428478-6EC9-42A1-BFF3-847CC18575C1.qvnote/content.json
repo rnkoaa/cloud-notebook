@@ -1,0 +1,10 @@
+{
+  "title": "Helpful",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sh",
+      "data": "git checkout -- ."
+    }
+  ]
+}

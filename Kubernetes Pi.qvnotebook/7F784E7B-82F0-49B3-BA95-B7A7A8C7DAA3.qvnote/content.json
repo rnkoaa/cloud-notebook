@@ -1,0 +1,10 @@
+{
+  "title": "Disable Swap",
+  "cells": [
+    {
+      "type": "code",
+      "language": "yaml",
+      "data": "ansible all -i hosts -m shell -a \"swapoff --all\" --become\n ansible all -i hosts -m shell -a \"free\"\n \n# For permanent\napt-get remove dphys-swapfile\nansible all -i hosts -m shell -a \"apt-get remove dphys-swapfile\" --become\nansible  all -i hosts -m apt -a \"name=dphys-swapfile state=absent\" -f 5 --become\n\n# Ansible background commands\nansible all -a \"/usr/bin/somescript\" -B 3600 -P 0 "
+    }
+  ]
+}

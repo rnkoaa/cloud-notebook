@@ -1,0 +1,10 @@
+{
+  "title": "Background commands",
+  "cells": [
+    {
+      "type": "code",
+      "language": "yaml",
+      "data": "# Ansible background commands\nansible all -a \"/usr/bin/somescript\" -B 3600 -P 0 "
+    }
+  ]
+}

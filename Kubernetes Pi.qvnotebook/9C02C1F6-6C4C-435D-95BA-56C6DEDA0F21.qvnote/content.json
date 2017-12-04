@@ -1,0 +1,10 @@
+{
+  "title": "remove item from hosts file",
+  "cells": [
+    {
+      "type": "code",
+      "language": "yaml",
+      "data": "ansible all -i hosts -m lineinfile -a \"dest=/etc/hosts regexp='^127\\.0\\.1\\.1\\s+raspberrypi' state=absent\" -f 5 --become"
+    }
+  ]
+}

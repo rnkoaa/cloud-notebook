@@ -1,0 +1,19 @@
+{
+  "title": "Vault Postgres",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sql",
+      "data": "CREATE USER \"vault\" WITH SUPERUSER PASSWORD 'vault' ;\nCREATE DATABASE vault;\nGRANT ALL PRIVILEGES ON DATABASE vault TO vault;"
+    },
+    {
+      "type": "code",
+      "language": "sql",
+      "data": "CREATE TABLE vault_kv_store (\n    parent_path TEXT COLLATE \"C\" NOT NULL,\n    path        TEXT COLLATE \"C\",\n    key         TEXT COLLATE \"C\",\n    value       BYTEA,\n    CONSTRAINT pkey PRIMARY KEY (path, key)\n);\nCREATE INDEX parent_path_idx ON vault_kv_store (parent_path);"
+    },
+    {
+      "type": "text",
+      "data": ""
+    }
+  ]
+}

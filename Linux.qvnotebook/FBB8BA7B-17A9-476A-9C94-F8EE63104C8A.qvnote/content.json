@@ -1,0 +1,9 @@
+{
+  "title": "Enable User sudo no Password",
+  "cells": [
+    {
+      "type": "markdown",
+      "data": "`/etc/sudoers.d/`\n\n```sh\nubuntu ALL=(ALL) NOPASSWD:ALL\n```\n\n/etc/sudoers.d/ansible-user\n```sh\nansible-user ALL=(ALL) NOPASSWD:ALL\n```"
+    }
+  ]
+}

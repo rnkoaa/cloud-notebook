@@ -1,0 +1,10 @@
+{
+  "title": "Looping",
+  "cells": [
+    {
+      "type": "code",
+      "language": "sql",
+      "data": "FOR temprow IN\n        SELECT * FROM user_data.users ORDER BY user_seasonpts DESC LIMIT 10\n    LOOP\n        INSERT INTO user_data.leaderboards (season_num,player_id,season_pts) VALUES (old_seasonnum,temprow.userd_id,temprow.season_ptss);\n    END LOOP;"
+    }
+  ]
+}
